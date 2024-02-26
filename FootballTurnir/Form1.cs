@@ -1,6 +1,7 @@
 using FootballTurnir.DAL;
 using FootballTurnir.DAL.Entities;
 using FootballTurnir.DAL.Service;
+using System.Numerics;
 using System.Transactions;
 
 namespace FootballTurnir
@@ -307,15 +308,14 @@ namespace FootballTurnir
                 {
                     richTextBox1.AppendText("Ви впевнені, що хочете видалити матч? (Так/Ні)\n");
 
-                    // Очікування відповіді користувача
                     var userResponse = Console.ReadLine();
 
                     //if (userResponse.Trim().ToLower() == "так")
                     //{
-                        clubService.RemoveMatch(matchToRemove);
+                    clubService.RemoveMatch(matchToRemove);
 
-                        // Оновити список матчів після видалення
-                        matches = context.Matches.ToList();
+                    // Оновити список матчів після видалення
+                    matches = context.Matches.ToList();
                     //}
                     //else
                     //{
@@ -335,6 +335,114 @@ namespace FootballTurnir
             }
         }
 
+        private void displayTop3BombardirsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string teamName = "Shahter";
+            List<Players>? players = clubService.DisplayTop3BombardirsOneTeam(teamName);
 
+            richTextBox1.Clear();
+
+            foreach (var player in players)
+            {
+                richTextBox1.AppendText($"{player.FirstName}, {player.CountGoals}\n");
+            }
+        }
+
+        private void displayAllInfoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (var context = new FootballTurnirContext())
+            {
+                if (context.Players.Count() == 0)
+                {
+                    clubService.AddPlayer();
+                }
+                var players = context.Players.ToList();
+                richTextBox1.Clear();
+                foreach (var player in players)
+                {
+                    richTextBox1.AppendText($"{player.Id}, {player.FirstName}, {player.Country}, {player.NameTeam}, {player.Position}, {player.CountGoals}\n");
+                }
+            }
+        }
+
+        private void displayTop3BombardirsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<Players> playersTop3 = clubService.DisplayTop3Bombardirs();
+            richTextBox1.Clear();
+            foreach (var player in playersTop3)
+            {
+                richTextBox1.AppendText($"{player.Id}, {player.FirstName}, {player.Country}, {player.NameTeam}, {player.Position}, {player.CountGoals}\n");
+            }
+        }
+
+        private void displayTheBestBombardirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Players? bestPlayer = clubService.DisplayTheBestPlayer();
+            richTextBox1.Clear();
+            if (bestPlayer != null)
+            {
+                richTextBox1.AppendText($"{bestPlayer.FirstName}, {bestPlayer.Country}, {bestPlayer.NameTeam}, {bestPlayer.Position}, {bestPlayer.CountGoals}\n");
+            }
+        }
+
+        private void displayTop3ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<Club> top3Goals = clubService.DisplayTop3MostGoals();
+            richTextBox1.Clear();
+            foreach (var goal in top3Goals)
+            {
+                richTextBox1.AppendText($"{goal.NameTeam}, {goal.CountGoalSC}\n");
+            }
+        }
+
+        private void displayTopTEamScoredGoalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Club teamGoal = clubService.DisplayTopGoalsTeam();
+            richTextBox1.Clear();
+            if (teamGoal != null)
+            {
+                richTextBox1.AppendText($"{teamGoal.NameTeam}, {teamGoal.CountGoalSC}");
+            }
+        }
+
+        private void displayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<Club> minMissedGoal = clubService.DisplayMinMissedGoal();
+            richTextBox1.Clear();
+            foreach (var missedGoal in minMissedGoal)
+            {
+                richTextBox1.AppendText($"{missedGoal.NameTeam}, {missedGoal.CountGoalCo} \n");
+            }
+        }
+
+        private void displayMinMissedGoalTeamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Club minMissedGoalTeam = clubService.DisplayMinGoalMissedTeam();
+            richTextBox1.Clear();
+            if (minMissedGoalTeam != null)
+            {
+                richTextBox1.AppendText($"{minMissedGoalTeam.NameTeam}, {minMissedGoalTeam.CountGoalCo}");
+            }
+        }
+
+        private void displayTeamMostScoredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Club mostScored = clubService.DisplayTeamMostScored();
+            richTextBox1.Clear();
+            if (mostScored != null)
+            {
+                richTextBox1.AppendText($"{mostScored.NameTeam}, {mostScored.TownTeam}, {mostScored.CountVict}, {mostScored.CountDef}, {mostScored.CountDraw}, {mostScored.CountGoalSC}, {mostScored.CountGoalCo}\n");
+            }
+        }
+
+        private void displayTeamLowScoredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Club lowScored = clubService.DisplayTeamLowScored();
+            richTextBox1.Clear();
+            if (lowScored != null)
+            {
+                richTextBox1.AppendText($"{lowScored.NameTeam}, {lowScored.TownTeam}, {lowScored.CountVict}, {lowScored.CountDef}, {lowScored.CountDraw}, {lowScored.CountGoalSC}, {lowScored.CountGoalCo}\n");
+            }
+        }
     }
 }

@@ -45,6 +45,11 @@
             displayTeamByMinPointsToolStripMenuItem = new ToolStripMenuItem();
             displayTop3ToolStripMenuItem = new ToolStripMenuItem();
             dislpatLowTop3PopularTeamToolStripMenuItem = new ToolStripMenuItem();
+            displayTop3ToolStripMenuItem1 = new ToolStripMenuItem();
+            displayTopTEamScoredGoalToolStripMenuItem = new ToolStripMenuItem();
+            displayToolStripMenuItem1 = new ToolStripMenuItem();
+            displayMinMissedGoalTeamToolStripMenuItem = new ToolStripMenuItem();
+            displayTeamMostScoredToolStripMenuItem = new ToolStripMenuItem();
             addToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
@@ -56,9 +61,15 @@
             displayAllMatchOneTeamToolStripMenuItem = new ToolStripMenuItem();
             addToolStripMenuItem1 = new ToolStripMenuItem();
             updateToolStripMenuItem = new ToolStripMenuItem();
-            playersToolStripMenuItem = new ToolStripMenuItem();
-            difToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem1 = new ToolStripMenuItem();
+            playersToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem2 = new ToolStripMenuItem();
+            displayTop3BombardirsToolStripMenuItem = new ToolStripMenuItem();
+            displayAllInfoToolStripMenuItem1 = new ToolStripMenuItem();
+            displayTop3BombardirsToolStripMenuItem1 = new ToolStripMenuItem();
+            displayTheBestBombardirToolStripMenuItem = new ToolStripMenuItem();
+            difToolStripMenuItem = new ToolStripMenuItem();
+            displayTeamLowScoredToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,7 +148,7 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewAllInfoToolStripMenuItem, displayToolStripMenuItem, displayTopTeamToolStripMenuItem, displayTeamByMinPointsToolStripMenuItem, displayTop3ToolStripMenuItem, dislpatLowTop3PopularTeamToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewAllInfoToolStripMenuItem, displayToolStripMenuItem, displayTopTeamToolStripMenuItem, displayTeamByMinPointsToolStripMenuItem, displayTop3ToolStripMenuItem, dislpatLowTop3PopularTeamToolStripMenuItem, displayTop3ToolStripMenuItem1, displayTopTEamScoredGoalToolStripMenuItem, displayToolStripMenuItem1, displayMinMissedGoalTeamToolStripMenuItem, displayTeamMostScoredToolStripMenuItem, displayTeamLowScoredToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(180, 22);
             viewToolStripMenuItem.Text = "View";
@@ -145,44 +156,79 @@
             // viewAllInfoToolStripMenuItem
             // 
             viewAllInfoToolStripMenuItem.Name = "viewAllInfoToolStripMenuItem";
-            viewAllInfoToolStripMenuItem.Size = new Size(226, 22);
+            viewAllInfoToolStripMenuItem.Size = new Size(247, 22);
             viewAllInfoToolStripMenuItem.Text = "DisplayAllInfo";
             viewAllInfoToolStripMenuItem.Click += viewAllInfoToolStripMenuItem_Click;
             // 
             // displayToolStripMenuItem
             // 
             displayToolStripMenuItem.Name = "displayToolStripMenuItem";
-            displayToolStripMenuItem.Size = new Size(226, 22);
+            displayToolStripMenuItem.Size = new Size(247, 22);
             displayToolStripMenuItem.Text = "DisplayInfoOneTeam";
             displayToolStripMenuItem.Click += displayToolStripMenuItem_Click;
             // 
             // displayTopTeamToolStripMenuItem
             // 
             displayTopTeamToolStripMenuItem.Name = "displayTopTeamToolStripMenuItem";
-            displayTopTeamToolStripMenuItem.Size = new Size(226, 22);
+            displayTopTeamToolStripMenuItem.Size = new Size(247, 22);
             displayTopTeamToolStripMenuItem.Text = "DisplayTeamByMaxPoints";
             displayTopTeamToolStripMenuItem.Click += displayTopTeamToolStripMenuItem_Click;
             // 
             // displayTeamByMinPointsToolStripMenuItem
             // 
             displayTeamByMinPointsToolStripMenuItem.Name = "displayTeamByMinPointsToolStripMenuItem";
-            displayTeamByMinPointsToolStripMenuItem.Size = new Size(226, 22);
+            displayTeamByMinPointsToolStripMenuItem.Size = new Size(247, 22);
             displayTeamByMinPointsToolStripMenuItem.Text = "DisplayTeamByMinPoints";
             displayTeamByMinPointsToolStripMenuItem.Click += displayTeamByMinPointsToolStripMenuItem_Click;
             // 
             // displayTop3ToolStripMenuItem
             // 
             displayTop3ToolStripMenuItem.Name = "displayTop3ToolStripMenuItem";
-            displayTop3ToolStripMenuItem.Size = new Size(226, 22);
+            displayTop3ToolStripMenuItem.Size = new Size(247, 22);
             displayTop3ToolStripMenuItem.Text = "DisplayTop3PopularTeam";
             displayTop3ToolStripMenuItem.Click += displayTop3ToolStripMenuItem_Click;
             // 
             // dislpatLowTop3PopularTeamToolStripMenuItem
             // 
             dislpatLowTop3PopularTeamToolStripMenuItem.Name = "dislpatLowTop3PopularTeamToolStripMenuItem";
-            dislpatLowTop3PopularTeamToolStripMenuItem.Size = new Size(226, 22);
+            dislpatLowTop3PopularTeamToolStripMenuItem.Size = new Size(247, 22);
             dislpatLowTop3PopularTeamToolStripMenuItem.Text = "DislpatLowTop3PopularTeam";
             dislpatLowTop3PopularTeamToolStripMenuItem.Click += dislpatLowTop3PopularTeamToolStripMenuItem_Click;
+            // 
+            // displayTop3ToolStripMenuItem1
+            // 
+            displayTop3ToolStripMenuItem1.Name = "displayTop3ToolStripMenuItem1";
+            displayTop3ToolStripMenuItem1.Size = new Size(247, 22);
+            displayTop3ToolStripMenuItem1.Text = "DisplayTop3MostGoals";
+            displayTop3ToolStripMenuItem1.Click += displayTop3ToolStripMenuItem1_Click;
+            // 
+            // displayTopTEamScoredGoalToolStripMenuItem
+            // 
+            displayTopTEamScoredGoalToolStripMenuItem.Name = "displayTopTEamScoredGoalToolStripMenuItem";
+            displayTopTEamScoredGoalToolStripMenuItem.Size = new Size(247, 22);
+            displayTopTEamScoredGoalToolStripMenuItem.Text = "DisplayTopTEamScoredGoal";
+            displayTopTEamScoredGoalToolStripMenuItem.Click += displayTopTEamScoredGoalToolStripMenuItem_Click;
+            // 
+            // displayToolStripMenuItem1
+            // 
+            displayToolStripMenuItem1.Name = "displayToolStripMenuItem1";
+            displayToolStripMenuItem1.Size = new Size(247, 22);
+            displayToolStripMenuItem1.Text = "DisplayTop3TeamMinMissedGoal";
+            displayToolStripMenuItem1.Click += displayToolStripMenuItem1_Click;
+            // 
+            // displayMinMissedGoalTeamToolStripMenuItem
+            // 
+            displayMinMissedGoalTeamToolStripMenuItem.Name = "displayMinMissedGoalTeamToolStripMenuItem";
+            displayMinMissedGoalTeamToolStripMenuItem.Size = new Size(247, 22);
+            displayMinMissedGoalTeamToolStripMenuItem.Text = "DisplayMinMissedGoalTeam";
+            displayMinMissedGoalTeamToolStripMenuItem.Click += displayMinMissedGoalTeamToolStripMenuItem_Click;
+            // 
+            // displayTeamMostScoredToolStripMenuItem
+            // 
+            displayTeamMostScoredToolStripMenuItem.Name = "displayTeamMostScoredToolStripMenuItem";
+            displayTeamMostScoredToolStripMenuItem.Size = new Size(247, 22);
+            displayTeamMostScoredToolStripMenuItem.Text = "DisplayTeamMostScored";
+            displayTeamMostScoredToolStripMenuItem.Click += displayTeamMostScoredToolStripMenuItem_Click;
             // 
             // addToolStripMenuItem
             // 
@@ -216,7 +262,7 @@
             // 
             viewToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { displayAllInfoToolStripMenuItem, displayDifferentsScoredToolStripMenuItem, displayInfoDateToolStripMenuItem, displayAllMatchOneTeamToolStripMenuItem });
             viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            viewToolStripMenuItem1.Size = new Size(180, 22);
+            viewToolStripMenuItem1.Size = new Size(112, 22);
             viewToolStripMenuItem1.Text = "View";
             // 
             // displayAllInfoToolStripMenuItem
@@ -250,34 +296,77 @@
             // addToolStripMenuItem1
             // 
             addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            addToolStripMenuItem1.Size = new Size(180, 22);
+            addToolStripMenuItem1.Size = new Size(112, 22);
             addToolStripMenuItem1.Text = "Add";
             addToolStripMenuItem1.Click += addToolStripMenuItem1_Click;
             // 
             // updateToolStripMenuItem
             // 
             updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            updateToolStripMenuItem.Size = new Size(180, 22);
+            updateToolStripMenuItem.Size = new Size(112, 22);
             updateToolStripMenuItem.Text = "Update";
             updateToolStripMenuItem.Click += updateToolStripMenuItem_Click;
             // 
+            // removeToolStripMenuItem1
+            // 
+            removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
+            removeToolStripMenuItem1.Size = new Size(112, 22);
+            removeToolStripMenuItem1.Text = "Delete";
+            removeToolStripMenuItem1.Click += removeToolStripMenuItem1_Click;
+            // 
             // playersToolStripMenuItem
             // 
+            playersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem2 });
             playersToolStripMenuItem.Name = "playersToolStripMenuItem";
             playersToolStripMenuItem.Size = new Size(56, 20);
             playersToolStripMenuItem.Text = "Players";
+            // 
+            // viewToolStripMenuItem2
+            // 
+            viewToolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { displayTop3BombardirsToolStripMenuItem, displayAllInfoToolStripMenuItem1, displayTop3BombardirsToolStripMenuItem1, displayTheBestBombardirToolStripMenuItem });
+            viewToolStripMenuItem2.Name = "viewToolStripMenuItem2";
+            viewToolStripMenuItem2.Size = new Size(99, 22);
+            viewToolStripMenuItem2.Text = "View";
+            // 
+            // displayTop3BombardirsToolStripMenuItem
+            // 
+            displayTop3BombardirsToolStripMenuItem.Name = "displayTop3BombardirsToolStripMenuItem";
+            displayTop3BombardirsToolStripMenuItem.Size = new Size(248, 22);
+            displayTop3BombardirsToolStripMenuItem.Text = "DisplayTop3BombardirsOneTeam";
+            displayTop3BombardirsToolStripMenuItem.Click += displayTop3BombardirsToolStripMenuItem_Click;
+            // 
+            // displayAllInfoToolStripMenuItem1
+            // 
+            displayAllInfoToolStripMenuItem1.Name = "displayAllInfoToolStripMenuItem1";
+            displayAllInfoToolStripMenuItem1.Size = new Size(248, 22);
+            displayAllInfoToolStripMenuItem1.Text = "DisplayAllInfo";
+            displayAllInfoToolStripMenuItem1.Click += displayAllInfoToolStripMenuItem1_Click;
+            // 
+            // displayTop3BombardirsToolStripMenuItem1
+            // 
+            displayTop3BombardirsToolStripMenuItem1.Name = "displayTop3BombardirsToolStripMenuItem1";
+            displayTop3BombardirsToolStripMenuItem1.Size = new Size(248, 22);
+            displayTop3BombardirsToolStripMenuItem1.Text = "DisplayTop3Bombardirs";
+            displayTop3BombardirsToolStripMenuItem1.Click += displayTop3BombardirsToolStripMenuItem1_Click;
+            // 
+            // displayTheBestBombardirToolStripMenuItem
+            // 
+            displayTheBestBombardirToolStripMenuItem.Name = "displayTheBestBombardirToolStripMenuItem";
+            displayTheBestBombardirToolStripMenuItem.Size = new Size(248, 22);
+            displayTheBestBombardirToolStripMenuItem.Text = "DisplayTheBestBombardir";
+            displayTheBestBombardirToolStripMenuItem.Click += displayTheBestBombardirToolStripMenuItem_Click;
             // 
             // difToolStripMenuItem
             // 
             difToolStripMenuItem.Name = "difToolStripMenuItem";
             difToolStripMenuItem.Size = new Size(32, 19);
             // 
-            // removeToolStripMenuItem1
+            // displayTeamLowScoredToolStripMenuItem
             // 
-            removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
-            removeToolStripMenuItem1.Size = new Size(180, 22);
-            removeToolStripMenuItem1.Text = "Delete";
-            removeToolStripMenuItem1.Click += removeToolStripMenuItem1_Click;
+            displayTeamLowScoredToolStripMenuItem.Name = "displayTeamLowScoredToolStripMenuItem";
+            displayTeamLowScoredToolStripMenuItem.Size = new Size(247, 22);
+            displayTeamLowScoredToolStripMenuItem.Text = "DisplayTeamLowScored";
+            displayTeamLowScoredToolStripMenuItem.Click += displayTeamLowScoredToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -331,5 +420,16 @@
         private ToolStripMenuItem addToolStripMenuItem1;
         private ToolStripMenuItem updateToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem1;
+        private ToolStripMenuItem viewToolStripMenuItem2;
+        private ToolStripMenuItem displayTop3BombardirsToolStripMenuItem;
+        private ToolStripMenuItem displayAllInfoToolStripMenuItem1;
+        private ToolStripMenuItem displayTop3BombardirsToolStripMenuItem1;
+        private ToolStripMenuItem displayTheBestBombardirToolStripMenuItem;
+        private ToolStripMenuItem displayTop3ToolStripMenuItem1;
+        private ToolStripMenuItem displayTopTEamScoredGoalToolStripMenuItem;
+        private ToolStripMenuItem displayToolStripMenuItem1;
+        private ToolStripMenuItem displayMinMissedGoalTeamToolStripMenuItem;
+        private ToolStripMenuItem displayTeamMostScoredToolStripMenuItem;
+        private ToolStripMenuItem displayTeamLowScoredToolStripMenuItem;
     }
 }

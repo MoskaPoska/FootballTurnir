@@ -3,6 +3,9 @@ using FootballTurnir.DAL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Net.WebSockets;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,8 +60,8 @@ namespace FootballTurnir.DAL.Service
                 {
                     List<Match> matchs = new List<Match>()
                     {
-                        new Match(){Team1="Shahter", Team2="Real Madrid", CountGoalTeam1=6, CountGoalTeam2=2, DateTime = new DateTime(2001,01,01), Player="Neverton" },
-                        new Match(){Team1="Barselona", Team2="Barselona", CountGoalTeam1=4, CountGoalTeam2=3, DateTime = new DateTime(2002,02,02), Player="Messi" }
+                        new Match(){Team1="Shahter", Team2="Real Madrid", CountGoalTeam1=6, CountGoalTeam2=2, DateTime = new DateTime(2001,01,01)},
+                        new Match(){Team1="Barselona", Team2="Barselona", CountGoalTeam1=4, CountGoalTeam2=3, DateTime = new DateTime(2002,02,02)}
                     };
                     context.Matches.AddRange(matchs);
                     context.SaveChanges();
@@ -67,8 +70,34 @@ namespace FootballTurnir.DAL.Service
 
                 if (presentMatch == null)
                 {
-                    Match match = new Match() { Team1 = "Dinamo", Team2 = "Zorya", CountGoalTeam1 = 3, CountGoalTeam2 = 1, DateTime = new DateTime(2003, 03, 03), Player = "Nesheret" };
+                    Match match = new Match() { Team1 = "Dinamo", Team2 = "Zorya", CountGoalTeam1 = 3, CountGoalTeam2 = 1, DateTime = new DateTime(2003, 03, 03)};
                     context.Matches.Add(match);
+                    context.SaveChanges();
+                }
+            }
+        }
+        public void AddPlayer()
+        {
+            using (var context = new FootballTurnirContext())
+            {
+                if(context.Players.Count()==0)
+                {
+                    List<Players> players = new List<Players>()
+                    {
+                        new Players() {FirstName="Vorobey", Country = "Ukraine", NameTeam="Shahter", Position="Bombardir", CountGoals = 114},
+                        new Players() {FirstName="Starukhin", Country = "Ukraine", NameTeam="Shahter", Position="Bombardir", CountGoals = 110},
+                         new Players() {FirstName="Adriano", Country = "Ukraine", NameTeam="Shahter", Position="Bombardir", CountGoals = 128},
+                        new Players() {FirstName="Pyatov", Country = "Ukraine", NameTeam="Shahter", Position="Gollkeeper", CountGoals = 0},
+                        new Players() {FirstName="Messi", Country = "Spain", NameTeam="Barselona", Position="Bombardir", CountGoals = 672},
+                        new Players() {FirstName="Suarez", Country = "Spain", NameTeam="Barselona", Position="Bombardir", CountGoals = 195},
+                        new Players() {FirstName="Rodriguez", Country = "Spain", NameTeam="Barselona", Position="Bombardir", CountGoals = 226},
+                        new Players() {FirstName="Stegen", Country = "Spain", NameTeam="Barselona", Position="Goalkeeper", CountGoals = 0},
+                        new Players() {FirstName="Ronaldo", Country = "Spain", NameTeam="Real Madrid", Position="Bombardir", CountGoals = 450},
+                        new Players() {FirstName="Benzema", Country = "Spain", NameTeam="Real Madrid", Position="Bombardir", CountGoals = 354},
+                        new Players() {FirstName="Raul", Country = "Spain", NameTeam="Real Madrid", Position="Bombardir", CountGoals = 323},
+                        new Players() {FirstName="Courtois", Country = "Spain", NameTeam="Real Madrid", Position="Goalkeeper", CountGoals = 0}
+                    };
+                    context.Players.AddRange(players);
                     context.SaveChanges();
                 }
             }
@@ -179,7 +208,50 @@ namespace FootballTurnir.DAL.Service
             }
             return matches;
         }
-
-        
+        public List<Players>? DisplayTop3BombardirsOneTeam(string teamName)
+        {
+            var top3bombOneTeam = _clubRepository.GetAll<Players>().OrderByDescending(t=>t.CountGoals).Take(3).ToList();
+            return top3bombOneTeam;
+        }
+        public List<Players>? DisplayTop3Bombardirs()
+        {
+            var top3bomb = _clubRepository.GetAll<Players>().OrderByDescending(t=>t.CountGoals).Take(3).ToList();
+            return top3bomb;
+        }
+        public Players?DisplayTheBestPlayer()
+        {
+            var bestPlayer = _clubRepository.GetAll<Players>().OrderByDescending(t=>t.CountGoals).FirstOrDefault();
+            return bestPlayer;
+        }
+        public List<Club>?DisplayTop3MostGoals()
+        {
+            var mostGoals=_clubRepository.GetAll<Club>().OrderByDescending(t=>t.CountGoalSC).Take(3).ToList();
+            return mostGoals;
+        }
+        public Club?DisplayTopGoalsTeam()
+        {
+            var teamGoal = _clubRepository.GetAll<Club>().OrderByDescending(t => t.CountGoalSC).FirstOrDefault();
+            return teamGoal;
+        }
+        public List<Club>?DisplayMinMissedGoal()
+        {
+            var minMissed=_clubRepository.GetAll<Club>().OrderBy(t=>t.CountGoalCo).Take(3).ToList();
+            return minMissed;
+        }
+        public Club?DisplayMinGoalMissedTeam()
+        {
+            var minMissedGoalTeam = _clubRepository.GetAll<Club>().OrderBy(t => t.CountGoalCo).FirstOrDefault();
+            return minMissedGoalTeam;
+        }
+        public Club?DisplayTeamMostScored()
+        {
+            var teamMostScored = _clubRepository.GetAll<Club>().OrderByDescending(t => t.CountVict * 3 + t.CountDraw).FirstOrDefault();
+            return teamMostScored;
+        }
+        public Club? DisplayTeamLowScored()
+        {
+            var teamLowScored=_clubRepository.GetAll<Club>().OrderBy(t=>t.CountVict*3+t.CountDraw).FirstOrDefault();
+            return teamLowScored;
+        }
     }
 }

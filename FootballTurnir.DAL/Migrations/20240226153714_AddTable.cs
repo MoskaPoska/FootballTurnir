@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FootballTurnir.DAL.Migrations
 {
-    public partial class Add3Tables : Migration
+    public partial class AddTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,8 @@ namespace FootballTurnir.DAL.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NameTeam = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Position = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CountGoals = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

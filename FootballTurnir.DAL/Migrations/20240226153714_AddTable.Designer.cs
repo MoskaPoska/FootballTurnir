@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FootballTurnir.DAL.Migrations
 {
     [DbContext(typeof(FootballTurnirContext))]
-    [Migration("20240223174456_Add3Tables")]
-    partial class Add3Tables
+    [Migration("20240226153714_AddTable")]
+    partial class AddTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,9 @@ namespace FootballTurnir.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CountGoals")
+                        .HasColumnType("int");
 
                     b.Property<string>("Country")
                         .IsRequired()

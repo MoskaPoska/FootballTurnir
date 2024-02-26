@@ -75,10 +75,6 @@ namespace FootballTurnir.DAL.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Player")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Team1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -99,6 +95,9 @@ namespace FootballTurnir.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CountGoals")
+                        .HasColumnType("int");
 
                     b.Property<string>("Country")
                         .IsRequired()

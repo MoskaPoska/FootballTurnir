@@ -48,7 +48,6 @@ namespace FootballTurnir.DAL.Service
                 {
                     Club club = new Club() { NameTeam = "Chelsea", TownTeam = "Chelsea", CountVict = 18, CountDef = 0, CountDraw = 5, CountGoalSC = 15, CountGoalCo = 4 };
                     context.Clubs.Add(club);
-                    context.SaveChanges();
                 }             
             }
         }
@@ -72,7 +71,6 @@ namespace FootballTurnir.DAL.Service
                 {
                     Match match = new Match() { Team1 = "Dinamo", Team2 = "Zorya", CountGoalTeam1 = 3, CountGoalTeam2 = 1, DateTime = new DateTime(2003, 03, 03)};
                     context.Matches.Add(match);
-                    context.SaveChanges();
                 }
             }
         }
@@ -102,11 +100,7 @@ namespace FootballTurnir.DAL.Service
                 }
             }
         }
-        public bool IsUnique(Club club)
-        {
-            return !_clubRepository.GetAll<Club>().Any(g => g.NameTeam == club.NameTeam);
-        }
-
+       
         public void AddMatch(Match match)
         {
             _clubRepository.Add(match);
@@ -248,7 +242,7 @@ namespace FootballTurnir.DAL.Service
             var teamMostScored = _clubRepository.GetAll<Club>().OrderByDescending(t => t.CountVict * 3 + t.CountDraw).FirstOrDefault();
             return teamMostScored;
         }
-        public Club? DisplayTeamLowScored()
+        public Club DisplayTeamLowScored()
         {
             var teamLowScored=_clubRepository.GetAll<Club>().OrderBy(t=>t.CountVict*3+t.CountDraw).FirstOrDefault();
             return teamLowScored;
